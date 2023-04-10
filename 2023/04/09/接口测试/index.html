@@ -16,8 +16,9 @@
 <meta property="og:image" content="http://fengzhengquan.github.io/2023/04/09/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/Image-1681127843588.png">
 <meta property="og:image" content="http://fengzhengquan.github.io/2023/04/09/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/Image-1681127858370.png">
 <meta property="og:image" content="http://fengzhengquan.github.io/2023/04/09/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/Image-1681127873388.png">
+<meta property="og:image" content="http://fengzhengquan.github.io/2023/04/09/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/image-20230410200016495.png">
 <meta property="article:published_time" content="2023-04-09T14:12:40.986Z">
-<meta property="article:modified_time" content="2023-04-10T11:58:05.659Z">
+<meta property="article:modified_time" content="2023-04-10T12:04:53.402Z">
 <meta property="article:author" content="冯正权">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://fengzhengquan.github.io/2023/04/09/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/Image-1681127843588.png">
@@ -98,19 +99,21 @@
 <p>例子：</p>
 <p><img src="/2023/04/09/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/Image-1681127858370.png" alt="Image"></p>
 <p>协议：规定数据的传输方式；<br>域名：在网络环境中找到主机；<br>端口号：在网络中唯一标识一个进程（在url中可省略）；<br>资源路径：表示网络资源（文本、图片、时评等）；<br>查询参数：以键值对的形式存储。</p>
-<h2 id="6、http请求的语法格式：（规定发送给服务器的数据组织格式）"><a href="#6、http请求的语法格式：（规定发送给服务器的数据组织格式）" class="headerlink" title="6、http请求的语法格式：（规定发送给服务器的数据组织格式）"></a>6、http请求的语法格式：（规定发送给服务器的数据组织格式）</h2><p>（1）请求行：http请求的第一行。格式为： 请求方法（空格） URL（空格） 协议版本；<br>（2）请求头：语法格式：由多行键值对组成。<br>        User_Agent：描述请求发送端的浏览器类型。<br>        Content_Type：描述请求体的数据类型。<br>（3）空行：表示请求头已结束。<br>（4）请求体：请求发送时携带的数据。数据类型是Content_Type的值。<br>        注意：post和put有请求体；<br>                  get和delete没有请求体。</p>
+<h2 id="6、http请求的语法格式："><a href="#6、http请求的语法格式：" class="headerlink" title="6、http请求的语法格式："></a>6、http请求的语法格式：</h2><p>（规定发送给服务器的数据组织格式）</p>
+<p>（1）请求行：http请求的第一行。格式为： 请求方法（空格） URL（空格） 协议版本；<br>（2）请求头：语法格式：由多行键值对组成。<br>        User_Agent：描述请求发送端的浏览器类型。<br>        Content_Type：描述请求体的数据类型。<br>（3）空行：表示请求头已结束。<br>（4）请求体：请求发送时携带的数据。数据类型是Content_Type的值。<br>        注意：post和put有请求体；<br>                  get和delete没有请求体。</p>
 <h2 id="7、请求方法："><a href="#7、请求方法：" class="headerlink" title="7、请求方法："></a>7、请求方法：</h2><p>（1）GET：从服务器中获取资源（一项或多项）；<br>（2）POST：从服务器中新建一个资源；一般用于登录和向服务器添加数据。<br>（3）PUT：在服务器中更新资源；<br>（4）DELETE：在服务器中删除资源。</p>
 <h2 id="8、http响应的相关概念："><a href="#8、http响应的相关概念：" class="headerlink" title="8、http响应的相关概念："></a>8、http响应的相关概念：</h2><p>（1）定义：服务器端，针对客户端发送的http请求，回发响应数据。<br>（2）作用：规定发送给客户端的数据组织格式。</p>
 <h2 id="9、http响应的组成："><a href="#9、http响应的组成：" class="headerlink" title="9、http响应的组成："></a>9、http响应的组成：</h2><p><img src="/2023/04/09/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/Image-1681127873388.png" alt="Image"></p>
 <p>（1）响应行：协议版本（空格） 状态码（空格） 状态描述<br>（2）响应头：语法格式为键值对；<br>                        Content-Type：描述响应体的数据类型；<br>（3）空行：标志着响应头结束；<br>（4）响应体：绝大多数不为空；（请求成功回发数据，请求失败回发错误信息）<br>                        常见的响应体格式：Json、HTML、XML</p>
 <h2 id="10、状态行中的状态码："><a href="#10、状态行中的状态码：" class="headerlink" title="10、状态行中的状态码："></a>10、状态行中的状态码：</h2><p>（1）以1开头：指示信息。表示请求已被接收，等待被处理；<br>（2）以2开头：成功。代表请求成功被服务器接收、理解、接受。常见的状态码：200、201；<br>（3）以3开头：重定向。代表待访问的资源需要重新指定路径访问；<br>（4）以4开头：客户端错误。常见：404、403<br>（5）以5开头：服务端错误。</p>
 <h2 id="11、状态行中的状态码描述："><a href="#11、状态行中的状态码描述：" class="headerlink" title="11、状态行中的状态码描述："></a>11、状态行中的状态码描述：</h2><p>一般与状态码一一对应。</p>
-<h2 id="12、接口风格"><a href="#12、接口风格" class="headerlink" title="12、接口风格"></a>12、接口风格</h2><p>（1）传统风格接口<br>特点：<br>        请求方法，只是用get和post;<br>        URL不唯一，同一个操作可以对应不同URL;<br>        状态码的使用较为单一。<br>（2）RESTful风格</p>
+<h2 id="12、接口风格："><a href="#12、接口风格：" class="headerlink" title="12、接口风格："></a>12、接口风格：</h2><p>（1）传统风格接口<br>特点：<br>        请求方法，只是用get和post;<br>        URL不唯一，同一个操作可以对应不同URL;<br>        状态码的使用较为单一。<br>（2）RESTful风格</p>
+<p><img src="/2023/04/09/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/image-20230410200016495.png" alt="image-20230410200016495"></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fengzhengquan.github.io/2023/04/09/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" data-id="clgasajgg0001wwt32dyn0fm8" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://fengzhengquan.github.io/2023/04/09/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" data-id="clgasej0f00010ot3ety284lz" data-title="" class="article-share-link">Share</a>
       
       
       
