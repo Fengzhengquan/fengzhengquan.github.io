@@ -13,14 +13,14 @@
 <meta property="og:site_name" content="Learning_notes">
 <meta property="og:description" content="title: 123date: 2023-04-09 22:12:40tags: 1、接口：（1）定义：系统或组件之间进行数据交互的通道。（2）分类：按范围划分：    系统之间：        多个内部系统之间        内部系统与外部系统之间    程序之间：        方法与方法之间、模块与模块之间、函数与函数之间按协议划分：http、tcp、IP 2、接口测试概念：（1）定义：对系">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://gitee.com/kevinzhengkkk/picgo-kevin/raw/master/Image.png">
-<meta property="og:image" content="http://fengzhengquan.github.io/2023/04/09/123/C:%5CUsers%5C86132%5CAppData%5CLocal%5CTemp%5CImage.png">
-<meta property="og:image" content="http://fengzhengquan.github.io/2023/04/09/123/C:%5CUsers%5C86132%5CAppData%5CLocal%5CTemp%5CImage.png">
+<meta property="og:image" content="http://fengzhengquan.github.io/2023/04/09/123/Image.png">
+<meta property="og:image" content="http://fengzhengquan.github.io/2023/04/09/123/Image-1681092303374.png">
+<meta property="og:image" content="http://fengzhengquan.github.io/2023/04/09/123/Image-1681092324544.png">
 <meta property="article:published_time" content="2023-04-09T14:12:40.986Z">
-<meta property="article:modified_time" content="2023-04-09T14:37:25.579Z">
+<meta property="article:modified_time" content="2023-04-10T02:11:09.849Z">
 <meta property="article:author" content="冯正权">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gitee.com/kevinzhengkkk/picgo-kevin/raw/master/Image.png">
+<meta name="twitter:image" content="http://fengzhengquan.github.io/2023/04/09/123/Image.png">
   
     <link rel="alternate" href="/atom.xml" title="Learning_notes" type="application/atom+xml">
   
@@ -95,14 +95,14 @@
 <h2 id="3、接口测试的特点："><a href="#3、接口测试的特点：" class="headerlink" title="3、接口测试的特点："></a>3、接口测试的特点：</h2><p>（1）测试可以提前介入，提早发现BUG，符合质量控制前移的理念；<br>（2）可以发现页面操作发现不了的问题；<br>（3）接口测试低成本高效益。（解决底层的一个bug，可能就能解决上层的多个bug）</p>
 <h2 id="4、自动化接口测试："><a href="#4、自动化接口测试：" class="headerlink" title="4、自动化接口测试："></a>4、自动化接口测试：</h2><p>定义：用程序或工具代替人工自动完成对接口进行测试的过程</p>
 <h2 id="5、HTTP协议中URL概念："><a href="#5、HTTP协议中URL概念：" class="headerlink" title="5、HTTP协议中URL概念："></a>5、HTTP协议中URL概念：</h2><p>（1）URL: 统一资源定位符。唯一的标识互联网上标准资源的地址。<br>（2）构成：</p>
-<p><img src="https://gitee.com/kevinzhengkkk/picgo-kevin/raw/master/Image.png" alt="Image"></p>
+<p><img src="/2023/04/09/123/Image.png" alt="Image"></p>
 <p>例子：</p>
-<p><img src="/2023/04/09/123/C:%5CUsers%5C86132%5CAppData%5CLocal%5CTemp%5CImage.png" alt="Image"></p>
+<p><img src="/2023/04/09/123/Image-1681092303374.png" alt="Image"></p>
 <p>协议：规定数据的传输方式；<br>域名：在网络环境中找到主机；<br>端口号：在网络中唯一标识一个进程（在url中可省略）；<br>资源路径：表示网络资源（文本、图片、时评等）；<br>查询参数：以键值对的形式存储。</p>
 <h2 id="6、http请求的语法格式：（规定发送给服务器的数据组织格式）"><a href="#6、http请求的语法格式：（规定发送给服务器的数据组织格式）" class="headerlink" title="6、http请求的语法格式：（规定发送给服务器的数据组织格式）"></a>6、http请求的语法格式：（规定发送给服务器的数据组织格式）</h2><p>（1）请求行：http请求的第一行。格式为： 请求方法（空格） URL（空格） 协议版本；<br>（2）请求头：语法格式：由多行键值对组成。<br>        User_Agent：描述请求发送端的浏览器类型。<br>        Content_Type：描述请求体的数据类型。<br>（3）空行：表示请求头已结束。<br>（4）请求体：请求发送时携带的数据。数据类型是Content_Type的值。<br>        注意：post和put有请求体；<br>                  get和delete没有请求体。</p>
 <h2 id="7、请求方法："><a href="#7、请求方法：" class="headerlink" title="7、请求方法："></a>7、请求方法：</h2><p>（1）GET：从服务器中获取资源（一项或多项）；<br>（2）POST：从服务器中新建一个资源；一般用于登录和向服务器添加数据。<br>（3）PUT：在服务器中更新资源；<br>（4）DELETE：在服务器中删除资源。</p>
 <h2 id="8、http响应的相关概念："><a href="#8、http响应的相关概念：" class="headerlink" title="8、http响应的相关概念："></a>8、http响应的相关概念：</h2><p>（1）定义：服务器端，针对客户端发送的http请求，回发响应数据。<br>（2）作用：规定发送给客户端的数据组织格式。</p>
-<h2 id="9、http响应的组成："><a href="#9、http响应的组成：" class="headerlink" title="9、http响应的组成："></a>9、http响应的组成：</h2><p><img src="/2023/04/09/123/C:%5CUsers%5C86132%5CAppData%5CLocal%5CTemp%5CImage.png" alt="Image"></p>
+<h2 id="9、http响应的组成："><a href="#9、http响应的组成：" class="headerlink" title="9、http响应的组成："></a>9、http响应的组成：</h2><p><img src="/2023/04/09/123/Image-1681092324544.png" alt="Image"></p>
 <p>（1）响应行：协议版本（空格） 状态码（空格） 状态描述<br>（2）响应头：语法格式为键值对；<br>                        Content-Type：描述响应体的数据类型；<br>（3）空行：标志着响应头结束；<br>（4）响应体：绝大多数不为空；（请求成功回发数据，请求失败回发错误信息）<br>                        常见的响应体格式：Json、HTML、XML</p>
 <h2 id="10、状态行中的状态码："><a href="#10、状态行中的状态码：" class="headerlink" title="10、状态行中的状态码："></a>10、状态行中的状态码：</h2><p>（1）以1开头：指示信息。表示请求已被接收，等待被处理；<br>（2）以2开头：成功。代表请求成功被服务器接收、理解、接受。常见的状态码：200、201；<br>（3）以3开头：重定向。代表待访问的资源需要重新指定路径访问；<br>（4）以4开头：客户端错误。常见：404、403<br>（5）以5开头：服务端错误。</p>
 <h2 id="11、状态行中的状态码描述："><a href="#11、状态行中的状态码描述：" class="headerlink" title="11、状态行中的状态码描述："></a>11、状态行中的状态码描述：</h2><p>一般与状态码一一对应。</p>
@@ -111,7 +111,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fengzhengquan.github.io/2023/04/09/123/" data-id="clga738bk0000f8t3g97rfnxz" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://fengzhengquan.github.io/2023/04/09/123/" data-id="clga76e8i0000hkt33puw6fx2" data-title="" class="article-share-link">Share</a>
       
       
       
