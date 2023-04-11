@@ -93,11 +93,11 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="1、接口："><a href="#1、接口：" class="headerlink" title="1、接口："></a>1、接口：</h2><p>（1）定义：系统或组件之间进行数据交互的通道。<br>（2）分类：<br>按范围划分：<br>    系统之间：<br>        多个内部系统之间<br>        内部系统与外部系统之间<br>    程序之间：<br>        方法与方法之间、模块与模块之间、函数与函数之间<br>按协议划分：http、tcp、IP</p>
+        <h1 id="一、接口相关概念："><a href="#一、接口相关概念：" class="headerlink" title="一、接口相关概念："></a>一、接口相关概念：</h1><h2 id="1、接口"><a href="#1、接口" class="headerlink" title="1、接口"></a>1、接口</h2><p>（1）定义：系统或组件之间进行数据交互的通道。<br>（2）分类：<br>按范围划分：<br>    系统之间：<br>        多个内部系统之间<br>        内部系统与外部系统之间<br>    程序之间：<br>        方法与方法之间、模块与模块之间、函数与函数之间<br>按协议划分：http、tcp、IP</p>
 <h2 id="2、接口测试概念："><a href="#2、接口测试概念：" class="headerlink" title="2、接口测试概念："></a>2、接口测试概念：</h2><p>（1）定义：对系统或组件之间的接口进行测试，主要是校验数据的交换、传递、控制管理过程，以及相互逻辑依赖关系。<br>接口测试，主要针对的测试目标是服务器。<br>（2）测什么：服务器<br>（3）怎么测：<br>模拟客户端，向服务器发送请求；<br>（4）用什么测：<br>工具：fiddler，postman，jemter<br>代码：python+UnitTest框架+Requests框架<br>测试：服务器针对客户端请求，回发的响应数据是否与预期结果一致。</p>
 <h2 id="3、接口测试的特点："><a href="#3、接口测试的特点：" class="headerlink" title="3、接口测试的特点："></a>3、接口测试的特点：</h2><p>（1）测试可以提前介入，提早发现BUG，符合质量控制前移的理念；<br>（2）可以发现页面操作发现不了的问题；<br>（3）接口测试低成本高效益。（解决底层的一个bug，可能就能解决上层的多个bug）</p>
 <h2 id="4、自动化接口测试："><a href="#4、自动化接口测试：" class="headerlink" title="4、自动化接口测试："></a>4、自动化接口测试：</h2><p>定义：用程序或工具代替人工自动完成对接口进行测试的过程</p>
-<h2 id="5、HTTP协议中URL概念："><a href="#5、HTTP协议中URL概念：" class="headerlink" title="5、HTTP协议中URL概念："></a>5、HTTP协议中URL概念：</h2><p>（1）URL: 统一资源定位符。唯一的标识互联网上标准资源的地址。<br>（2）构成：</p>
+<h1 id="二、HTTP协议"><a href="#二、HTTP协议" class="headerlink" title="二、HTTP协议"></a>二、HTTP协议</h1><h2 id="5、HTTP协议中URL概念："><a href="#5、HTTP协议中URL概念：" class="headerlink" title="5、HTTP协议中URL概念："></a>5、HTTP协议中URL概念：</h2><p>（1）URL: 统一资源定位符。唯一的标识互联网上标准资源的地址。<br>（2）构成：</p>
 <p><img src="/2023/04/09/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/Image.png" alt="Image"></p>
 <p>例子：</p>
 <p><img src="/2023/04/09/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/Image-1681138191008.png" alt="Image"></p>
@@ -110,13 +110,24 @@
 <p>（1）响应行：协议版本（空格） 状态码（空格） 状态描述<br>（2）响应头：语法格式为键值对；<br>                        Content-Type：描述响应体的数据类型；<br>（3）空行：标志着响应头结束；<br>（4）响应体：绝大多数不为空；（请求成功回发数据，请求失败回发错误信息）<br>                        常见的响应体格式：Json、HTML、XML</p>
 <h2 id="10、状态行中的状态码："><a href="#10、状态行中的状态码：" class="headerlink" title="10、状态行中的状态码："></a>10、状态行中的状态码：</h2><p>（1）以1开头：指示信息。表示请求已被接收，等待被处理；<br>（2）以2开头：成功。代表请求成功被服务器接收、理解、接受。常见的状态码：200、201；<br>（3）以3开头：重定向。代表待访问的资源需要重新指定路径访问；<br>（4）以4开头：客户端错误。常见：404、403<br>（5）以5开头：服务端错误。</p>
 <h2 id="11、状态行中的状态码描述："><a href="#11、状态行中的状态码描述：" class="headerlink" title="11、状态行中的状态码描述："></a>11、状态行中的状态码描述：</h2><p>一般与状态码一一对应。</p>
-<h2 id="12、接口风格："><a href="#12、接口风格：" class="headerlink" title="12、接口风格："></a>12、接口风格：</h2><p>（1）传统风格接口<br>特点：<br>        请求方法，只是用get和post;<br>        URL不唯一，同一个操作可以对应不同URL;<br>        状态码的使用较为单一。<br>（2）RESTful风格</p>
+<h1 id="三、接口测试详细步骤"><a href="#三、接口测试详细步骤" class="headerlink" title="三、接口测试详细步骤"></a>三、接口测试详细步骤</h1><h2 id="12、接口风格："><a href="#12、接口风格：" class="headerlink" title="12、接口风格："></a>12、接口风格：</h2><p>（1）传统风格接口<br>特点：<br>        请求方法，只是用get和post;<br>        URL不唯一，同一个操作可以对应不同URL;<br>        状态码的使用较为单一。<br>（2）RESTful风格</p>
 <p><img src="/2023/04/09/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/Image-1681138210078.png" alt="Image"></p>
+<p><strong>特点</strong>：（1）每一个URL代表一种资源；（2）客户端和服务器之间，传递这种资源的某种表现层；（3）客户端通过四个HTTP动词，对服务器端资源进行操作，实现“表现层状态转化”；（4）接口之间传递的数据最常用格式为JSON。</p>
+<h2 id="13、接口测试流程"><a href="#13、接口测试流程" class="headerlink" title="13、接口测试流程"></a>13、接口测试流程</h2><p>（1）需求分析：         主要依据需求文档；<br>（2）接口文档解析：         一般是由开发人员编写接口文档（API文档）（3）设计接口 测试用例<br>（4）执行测试<br>                    使用接口测试工具实现；postman、Jmeter<br>                    通过编写代码实现:python + Request + UnitTest框架<br>（5）接口缺陷管理与跟踪<br>（6）生成测试报告<br>（7）接口自动化持续集成</p>
+<h2 id="14、接口文档的概念："><a href="#14、接口文档的概念：" class="headerlink" title="14、接口文档的概念："></a><strong>14、接口文档的概念：</strong></h2><p>由开发人员编写，描述接口信息的文档。开发团队根据接口文档进行开发，并要一直维护和遵守。</p>
+<h2 id="15、接口文档的作用："><a href="#15、接口文档的作用：" class="headerlink" title="15、接口文档的作用："></a><strong>15、接口文档的作用：</strong></h2><p>（1）能够让前端开发与后台开发人员更好的配合，提高工作效率。<br>（2）项目迭代，方便后期人员查看和维护；<br>（3）方便测试人员进行接口测试。</p>
+<h2 id="16、接口文档的结构："><a href="#16、接口文档的结构：" class="headerlink" title="16、接口文档的结构："></a><strong>16、接口文档的结构：</strong></h2><p>（1）基本信息：<br>        资源路径（协议和域名在“系统信息”中）；<br>        请求方法；<br>        接口描述。<br>（2）请求参数：<br>        请求头：<br>        Content-type 描述请求体的数据类型；<br>         请求体：<br>        实现该接口使用的数据和对应类型。<br>（3）返回数据:<br>        成功：返回状态码：200；<br>        失败：错误码（自定义的状态码，并不代表就是错误，也可能是自定义的成功状态码）；<br><strong>示例：</strong></p>
+<p><img src="/2023/04/09/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/Image-1681182329145.png" alt="Image"></p>
+<p><img src="/2023/04/09/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/Image-1681182333483.png" alt="Image"></p>
+<p><img src="/2023/04/09/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/Image-1681182341369.png" alt="Image"></p>
+<p><img src="/2023/04/09/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/Image-1681182346659.png" alt="Image"></p>
+<h2 id="17、接口文档解析："><a href="#17、接口文档解析：" class="headerlink" title="17、接口文档解析："></a><strong>17、接口文档解析：</strong></h2><p><strong>接口文档的解析本质：</strong>从接口文档中找出http请求所需要的数据信息（请求方法、URL、请求头、请求体、相应状态码、描述）。<br><strong>以上文中的“登录”接口文档为例：取出的数据为：</strong><br>请求方法：POST;<br>URL: <a target="_blank" rel="noopener" href="http://ihrm-test.itheima.net/api/sys/login">http://ihrm-test.itheima.net/api/sys/login</a> (注意需要将系统路径与基本信息中的path拼接)。<br>请求头：Conten-Type：application&#x2F;json<br>请求体：{“mobile”:”13800000002”,”password”:”123456”}<br>响应状态码：200<br>错误码：<br>10000：操作成功！<br>20001：用户名或密码错误；<br>99999：抱歉，系统繁忙，请稍后重试。<br><strong>Fiddler来发送请求实例：</strong></p>
+<p><img src="/2023/04/09/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/Image-1681182432050.png" alt="Image"></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fengzhengquan.github.io/2023/04/09/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" data-id="clgayplud0001fot3fmgk4uwz" data-title="接口测试" class="article-share-link">Share</a>
+      <a data-url="http://fengzhengquan.github.io/2023/04/09/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" data-id="clgbpqh6i0001bot39r9mdfqa" data-title="接口测试" class="article-share-link">Share</a>
       
       
       
@@ -167,7 +178,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fengzhengquan.github.io/2023/04/09/hello-world/" data-id="clgayplu60000fot31a93f4wi" data-title="Hello World" class="article-share-link">Share</a>
+      <a data-url="http://fengzhengquan.github.io/2023/04/09/hello-world/" data-id="clgbpqh490000bot36xxh39cz" data-title="Hello World" class="article-share-link">Share</a>
       
       
       
