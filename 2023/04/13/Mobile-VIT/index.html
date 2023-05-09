@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Mobile_VIT | Learning_notes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="一、mobile_transformer的基本结构：1、整体结构： 整体流程:见图中下半部分。 2、MobileViT Block 具体结构1、首先输入的是一个高度为H、宽度为W、通道数为C的特征图。2、local representations（局部表征）：首先通过一个n×n的卷积层进行局部表征（代码中使用3×3的卷积），再通过一个1×1的卷积层调整通道数为d。3、global represen">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mobile_VIT">
+<meta property="og:url" content="http://fengzhengquan.github.io/2023/04/13/Mobile-VIT/index.html">
+<meta property="og:site_name" content="Learning_notes">
+<meta property="og:description" content="一、mobile_transformer的基本结构：1、整体结构： 整体流程:见图中下半部分。 2、MobileViT Block 具体结构1、首先输入的是一个高度为H、宽度为W、通道数为C的特征图。2、local representations（局部表征）：首先通过一个n×n的卷积层进行局部表征（代码中使用3×3的卷积），再通过一个1×1的卷积层调整通道数为d。3、global represen">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://fengzhengquan.github.io/2023/04/13/Mobile-VIT/Image-1681375826535.png">
+<meta property="og:image" content="http://fengzhengquan.github.io/2023/04/13/Mobile-VIT/image-20230413173451530.png">
+<meta property="og:image" content="http://fengzhengquan.github.io/2023/04/13/Mobile-VIT/image-20230413171901240.png">
+<meta property="og:image" content="http://fengzhengquan.github.io/2023/04/13/Mobile-VIT/image-20230413174045308.png">
+<meta property="og:image" content="http://fengzhengquan.github.io/2023/04/13/Mobile-VIT/image-20230413174745605.png">
+<meta property="article:published_time" content="2023-04-13T08:10:32.000Z">
+<meta property="article:modified_time" content="2023-05-09T09:16:49.088Z">
+<meta property="article:author" content="冯正权">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://fengzhengquan.github.io/2023/04/13/Mobile-VIT/Image-1681375826535.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Learning_notes" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Learning_notes</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://fengzhengquan.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Mobile-VIT" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/04/13/Mobile-VIT/" class="article-date">
+  <time class="dt-published" datetime="2023-04-13T08:10:32.000Z" itemprop="datePublished">2023-04-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Mobile_VIT
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="一、mobile-transformer的基本结构："><a href="#一、mobile-transformer的基本结构：" class="headerlink" title="一、mobile_transformer的基本结构："></a>一、mobile_transformer的基本结构：</h1><h2 id="1、整体结构："><a href="#1、整体结构：" class="headerlink" title="1、整体结构："></a>1、整体结构：</h2><p><img src="/2023/04/13/Mobile-VIT/Image-1681375826535.png" alt="Image"></p>
+<p>整体流程:见图中下半部分。</p>
+<h2 id="2、MobileViT-Block-具体结构"><a href="#2、MobileViT-Block-具体结构" class="headerlink" title="2、MobileViT Block 具体结构"></a>2、MobileViT Block 具体结构</h2><p>1、首先输入的是一个高度为H、宽度为W、通道数为C的特征图。<br>2、local representations（局部表征）：首先通过一个n×n的卷积层进行局部表征（代码中使用3×3的卷积），再通过一个1×1的卷积层调整通道数为d。<br>3、global representation（全局表征）：经过Unfold、L个Transformer块、Fold操作。（在组件中再详细介绍）<br>4、再通过1×1的卷积层调整通道数为C。<br>5、使用concat拼接，将得到的特征图与捷径分支输入的原始特征图进行拼接。<br>6、再通过n×n的卷积层进行特征的融合。得到一个高度为H、宽度为W、通道数为C的特征图。（像SE？）</p>
+<p><strong>mobile-VIT中的Transformer块：</strong><br>较传统VIT中的Transformer块的相同：<br><img src="/2023/04/13/Mobile-VIT/image-20230413173451530.png" alt="image-20230413173451530"></p>
+<p>较传统VIT中的Transformer块的不同：<br>将输入分成多个n×n的batch，下文图片中为2×2的patch。mobile-VIT只对每个patch中的相对位置相同的token做self-attention。而传统VIT不分batch，一个token要与所有的token都做self-attention。故Mobile-VIT较VIT的计算量减少了n平方分之一。<strong>此种方法能有效减少模型参数量。</strong></p>
+<p><img src="/2023/04/13/Mobile-VIT/image-20230413171901240.png" alt="image-20230413171901240"></p>
+<p>​		为什么可以这样做？因为对于图像数据，存在大量冗余信息，再分辨率较高的图片中，将这些冗余的信息都考虑进去，收益会较低。特别又是相邻位置，图像所表征的信息更可能相同或相似，故使用此种方法进行self-attention，来减少模型的参数量是可行的。</p>
+<p><strong>unfold、fold</strong><br>unfold：将每patch中相对位置想同的token拼成一个序列。<br>fold:将这些序列折叠回原特征图。<br><img src="/2023/04/13/Mobile-VIT/image-20230413174045308.png" alt="image-20230413174045308"></p>
+<p><img src="/2023/04/13/Mobile-VIT/image-20230413174745605.png" alt="image-20230413174745605"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fengzhengquan.github.io/2023/04/13/Mobile-VIT/" data-id="clhg25fm700007ct39cvx71sa" data-title="Mobile_VIT" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/04/20/react/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          react
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/04/09/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">接口测试</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/05/09/python-locust%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/">python+locust性能测试</a>
+          </li>
+        
+          <li>
+            <a href="/2023/04/20/react/">react</a>
+          </li>
+        
+          <li>
+            <a href="/2023/04/13/Mobile-VIT/">Mobile_VIT</a>
+          </li>
+        
+          <li>
+            <a href="/2023/04/09/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/">接口测试</a>
+          </li>
+        
+          <li>
+            <a href="/2023/04/09/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 冯正权<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
