@@ -6,15 +6,19 @@
   
   <title>python+locust性能测试 | Learning_notes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="article">
+  <meta name="description" content="一、性能测试的相关概念：1、性能测试的概念：性能测试是通过自动化的测试工具模拟多种正常、峰值以及异常负载条件来对系统的各项性能指标（如响应时间、最大连接数、服务器CPU、内存、磁盘占用等）进行测试。 2、性能测试的分类：（1）负载测试（Load Testing）负载测试是一种评估系统在高负载下的性能表现的测试类型。在负载测试中，会模拟大量用户同时访问系统，以评估系统的稳定性、响应时间和吞吐量等指标">
+<meta property="og:type" content="article">
 <meta property="og:title" content="python+locust性能测试">
 <meta property="og:url" content="http://fengzhengquan.github.io/2023/05/09/python-locust%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/index.html">
 <meta property="og:site_name" content="Learning_notes">
+<meta property="og:description" content="一、性能测试的相关概念：1、性能测试的概念：性能测试是通过自动化的测试工具模拟多种正常、峰值以及异常负载条件来对系统的各项性能指标（如响应时间、最大连接数、服务器CPU、内存、磁盘占用等）进行测试。 2、性能测试的分类：（1）负载测试（Load Testing）负载测试是一种评估系统在高负载下的性能表现的测试类型。在负载测试中，会模拟大量用户同时访问系统，以评估系统的稳定性、响应时间和吞吐量等指标">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://fengzhengquan.github.io/2023/05/09/python-locust%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/image-20230511171926838.png">
 <meta property="article:published_time" content="2023-05-09T09:13:00.000Z">
-<meta property="article:modified_time" content="2023-05-09T09:13:00.517Z">
+<meta property="article:modified_time" content="2023-05-11T09:19:55.607Z">
 <meta property="article:author" content="冯正权">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://fengzhengquan.github.io/2023/05/09/python-locust%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/image-20230511171926838.png">
   
     <link rel="alternate" href="/atom.xml" title="Learning_notes" type="application/atom+xml">
   
@@ -93,11 +97,21 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        
+        <h1 id="一、性能测试的相关概念："><a href="#一、性能测试的相关概念：" class="headerlink" title="一、性能测试的相关概念："></a>一、性能测试的相关概念：</h1><p>1、性能测试的概念：<br>性能测试是通过自动化的测试工具模拟多种正常、峰值以及异常负载条件来对系统的各项性能指标（如响应时间、最大连接数、服务器CPU、内存、磁盘占用等）进行测试。</p>
+<p>2、性能测试的分类：<br>（1）负载测试（Load Testing）<br>负载测试是一种评估系统在高负载下的性能表现的测试类型。在负载测试中，会模拟大量用户同时访问系统，以评估系统的稳定性、响应时间和吞吐量等指标。负载测试可以帮助发现系统的性能瓶颈，并提供优化建议。<br>（2）压力测试（Stress Testing）<br>压力测试是一种评估系统在极限负载下的性能表现的测试类型。在压力测试中，会使用大量的并发用户模拟系统运行在极限负载下的情况，以评估系统的容错能力和稳定性。压力测试可以帮助发现系统的极限容量，以及在超过容量时系统的表现。<br>（3）并发测试（Concurrency Testing）<br>并发测试是一种评估系统在多个并发用户访问下的性能表现的测试类型。在并发测试中，会模拟多个用户同时访问系统，以评估系统的并发处理能力和性能表现。并发测试可以帮助发现系统在高并发情况下的性能瓶颈，以及提供优化建议。<br>（4）配置测试（Configuration Testing）<br>配置测试是一种评估系统在不同配置下的性能表现的测试类型。在配置测试中，会对系统进行多组配置的测试，以评估系统在不同配置下的性能表现和稳定性。配置测试可以帮助发现系统在不同配置下的性能瓶颈，以及提供最佳的系统配置建议。<br>（5）容量测试（Capacity Testing）<br>容量测试是一种评估系统在预期负载下的性能表现的测试类型。在容量测试中，会对系统进行多组负载测试，以评估系统在预期负载下的性能表现和稳定性。容量测试可以帮助确定系统的最大负载容量，并提供优化建议。</p>
+<p>3、python开发性能测试平台的框架在使用 Python 进行性能测试开发时，可以考虑使用以下几个常用的性能测试框架：（1）Locust<br>Locust 是一个基于 Python 的开源性能测试框架，它可以模拟大量用户并发访问，以评估系统的性能表现。Locust 提供了简单易用的 API，可以用 Python 编写测试脚本，并提供 Web 界面进行测试结果的可视化和分析。<br>（2）PyTest-benchmark<br>PyTest-benchmark 是一个基于 PyTest 的性能测试框架，它可以对代码的性能进行基准测试，并输出测试结果和统计信息。PyTest-benchmark 支持多种测试类型，例如函数执行时间、内存使用情况等，可以在不同平台和环境下进行测试。<br>（3）Apache JMeter<br>Apache JMeter 是一个功能强大的开源性能测试工具，它可以模拟多种协议和场景，包括 Web 应用、数据库、FTP、SMTP 等。JMeter 提供了可视化界面，可以方便地配置测试计划和测试用例，并生成测试报告和图表。<br>（4）FunkLoad<br>FunkLoad 是一个基于 Python 的 Web 应用性能测试框架，它可以模拟用户行为并进行性能测试。FunkLoad 提供了多种测试类型，包括负载测试、压力测试、并发测试等，并支持多种 Web 应用框架和协议。</p>
+<h1 id="二、Locust"><a href="#二、Locust" class="headerlink" title="二、Locust"></a>二、Locust</h1><p>1、编写Locust测试运行脚本：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#导入相关的locust的类和成员</span></span><br><span class="line"><span class="keyword">from</span> locust <span class="keyword">import</span> HttpUser,TaskSet,task</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#任务类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">TestIndex</span>(<span class="title class_ inherited__">TaskSet</span>):</span><br><span class="line"><span class="meta">    @task</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">getIndex</span>(<span class="params">self</span>):</span><br><span class="line">        self.client.get(<span class="string">&quot;/&quot;</span>)<span class="comment">#此处括号中传入的是主机下的路径。</span></span><br><span class="line">        <span class="comment">#.client是一个对象，通常是网络客户端或Http客户端。.get是该对象的方法，用于发送GET请求，并返回响应对象。</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;here&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">WebSite</span>(<span class="title class_ inherited__">HttpUser</span>):</span><br><span class="line">    host=<span class="string">&quot;https://xiaolincoding.com/&quot;</span> <span class="comment">#此处写想要测试的域名。</span></span><br><span class="line">    tasks = [TestIndex]</span><br><span class="line">    min_wait = <span class="number">1000</span></span><br><span class="line">    max_wait = <span class="number">2000</span></span><br></pre></td></tr></table></figure>
+
+<p>2、在命令行输入：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">locust -f  testname.py  #testname.py时之前编写的Locust测试运行脚本。</span><br></pre></td></tr></table></figure>
+
+<p>3、前往locust运行的网页，设定访问申请的指标，既能查看相关的性能。<br><img src="/2023/05/09/python-locust%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/image-20230511171926838.png" alt="image-20230511171926838"></p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fengzhengquan.github.io/2023/05/09/python-locust%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" data-id="clhg22vjd0000ost34djt4ctj" data-title="python+locust性能测试" class="article-share-link">Share</a>
+      <a data-url="http://fengzhengquan.github.io/2023/05/09/python-locust%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" data-id="clhix6pja00026wt33uahaiyq" data-title="python+locust性能测试" class="article-share-link">Share</a>
       
       
       
